@@ -1,0 +1,22 @@
+---
+config:
+  domain: 'local'
+  network: '172.16.0'
+nodes:
+  rundeck:
+    box: centos/7
+    memory: 1024
+    cpus: 2
+    network:
+      forwarded_port:
+        guess: 4440
+        host: 4440
+    script:
+      name: rundeck.sh
+      provision: rundeck_prov
+      type: shell
+      privileged: true
+  node1:
+    box: centos/7
+    memory: 1024
+    cpus: 1
